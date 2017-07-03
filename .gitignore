@@ -1,0 +1,15 @@
+# Vagrant
+.vagrant/
+
+CentOS/
+
+# Ansible
+ansible/galaxy_roles/
+
+# Eclipse
+.settings/
+.project
+.pydevproject
+
+# OS X
+.DS_Store

@@ -1,0 +1,20 @@
+# Jinja2 templates should not be messed with on Windows as the target is Linux
+*.j2 text eol=lf
+# Facts are text files on Linux
+*.fact text eol=lf
+# Use catdoc or textract to diff word documents: http://www.aphex.cx/use_git_for_your_pdf_and_word_doc_files_/
+*.doc diff=word
+*.DOC diff=word
+# Use docx2txt to diff docx documents: https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes
+*.docx diff=wordx
+*.DOCX diff=wordx
+# Use odt2txt to diff odt documents: https://git.wiki.kernel.org/index.php/GitTips#How_to_use_git_to_track_OpenDocument_.28OpenOffice.2C_Koffice.29_files.3F
+*.ods diff=odf
+*.ODS diff=odf
+*.odt diff=odf
+*.ODT diff=odf
+*.odp diff=odf
+*.ODP diff=odf
+# Use pdftotext (part of poppler or poppler-utils on Debian): https://tante.cc/2009/03/24/versioning-pdf-files-with-git/
+*.pdf diff=pdf2txt
+*.PDF diff=pdf2txt
