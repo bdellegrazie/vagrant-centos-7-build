@@ -1,0 +1,7 @@
+---
+- name: Install Editors
+  yum: name={{ item }} state=present
+  when: ansible_os_family == 'RedHat'
+  with_items:
+    - nano
+    - vim-enhanced

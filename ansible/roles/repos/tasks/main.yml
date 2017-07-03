@@ -1,0 +1,19 @@
+---
+- name: "Manage {{ repos_yum_name }} repos (yum)"
+  yum_repository:
+    baseurl: "{{ item.baseurl | default(omit) }}"
+    cost: "{{ item.cost | default(omit) }}"
+    description: "{{ item.description | default(omit) }}"
+    enabled: "{{ item.enabled }}"
+    file: "{{ item.file | default(omit) }}"
+    gpgcheck: "{{ item.gpgcheck | default(omit) }}"
+    gpgkey: "{{ item.gpgkey | default(omit) }}"
+    http_caching: "{{ item.http_caching | default(omit) }}"
+    keepalive: "{{ item.keepalive | default(omit) }}"
+    mirrorlist: "{{ item.mirrorlist | default(omit) }}"
+    name: "{{ item.name }}"
+    protect: "{{ item.protect | default(omit) }}"
+    state: "{{ item.state | default(omit) }}"
+  when: ansible_os_family == 'RedHat' and repos_yum_manage
+  with_items: "{{ repos_yum_list }}"
+

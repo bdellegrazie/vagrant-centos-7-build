@@ -1,0 +1,50 @@
+---
+# Use a fixed yum mirror so that proxies work efficiently
+
+repo_epel_yum_manage: true
+repo_epel_yum_mirror: 'http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel'
+repo_epel_yum_list:
+  - baseurl: '{{ repo_epel_yum_mirror }}/$releasever/$basearch/'
+    description: 'Extra Packages for Enterprise Linux $releasever - $basearch'
+    enabled: 1
+    file: epel
+    gpgcheck: 1
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+    name: epel
+  - baseurl: '{{ repo_epel_yum_mirror }}/$releasever/$basearch/debug'
+    description: 'Extra Packages for Enterprise Linux $releasever - $basearch - Debug'
+    enabled: 0
+    file: epel
+    gpgcheck: 1
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+    name: epel-debuginfo
+  - baseurl: '{{ repo_epel_yum_mirror }}/$releasever/SRPMS'
+    description: 'Extra Packages for Enterprise Linux $releasever - $basearch - Source'
+    enabled: 0
+    file: epel
+    gpgcheck: 1
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+    name: epel-source
+
+  - baseurl: '{{ repo_epel_yum_mirror }}/testing/$releasever/$basearch'
+    description: 'Extra Packages for Enterprise Linux $releasever - Testing - $basearch'
+    enabled: 0
+    file: epel-testing
+    gpgcheck: 1
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+    name: epel-testing
+  - baseurl: '{{ repo_epel_yum_mirror }}/testing/$releasever/$basearch/debug'
+    description: 'Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Debug'
+    enabled: 0
+    file: epel-testing
+    gpgcheck: 1
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+    name: epel-testing-debuginfo
+  - baseurl: '{{ repo_epel_yum_mirror }}/testing/$releasever/SRPMS'
+    description: 'Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Source'
+    enabled: 0
+    file: epel-testing
+    gpgcheck: 1
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+    name: epel-testing-source
+

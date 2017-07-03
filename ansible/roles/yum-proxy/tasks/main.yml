@@ -1,0 +1,4 @@
+---
+- name: Enable yum proxy
+  ini_file: dest=/etc/yum.conf section=main option=proxy value={{ yum_proxy_url }}
+  when: ansible_os_family == 'RedHat' and yum_proxy_manage and yum_proxy_url is defined

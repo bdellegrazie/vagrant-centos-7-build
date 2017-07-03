@@ -1,0 +1,11 @@
+---
+
+- name: Set the number of TTYs (takes effect on reboot)
+  lineinfile:
+    dest: /etc/sysconfig/init
+    group: root
+    line: 'ACTIVE_CONSOLES=/dev/tty{{ ttys_range }}'
+    mode: '0644'
+    owner: root
+    regexp: '^ACTIVE_CONSOLES='
+    state: present

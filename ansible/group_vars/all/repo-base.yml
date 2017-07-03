@@ -1,0 +1,47 @@
+---
+# Use a fixed yum mirror so that proxies work efficiently
+
+repo_base_yum_manage: true
+repo_base_yum_mirror: 'http://www.mirrorservice.org/sites/mirror.centos.org'
+repo_base_yum_list:
+  - baseurl: '{{ repo_base_yum_mirror }}/$releasever/os/$basearch/'
+    description: '{{ ansible_distribution }}-$releasever - base packages for $basearch'
+    enabled: 1
+    file: '{{ ansible_distribution }}-Base'
+    gpgcheck: 1
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}
+    name: base
+    protect: 1
+  - baseurl: '{{ repo_base_yum_mirror }}/$releasever/updates/$basearch/'
+    description: '{{ ansible_distribution }}-$releasever - updates packages for $basearch'
+    enabled: 1
+    file: '{{ ansible_distribution }}-Base'
+    gpgcheck: 1
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}
+    name: updates
+    protect: 1
+  - baseurl: '{{ repo_base_yum_mirror }}/$releasever/extras/$basearch/'
+    description: '{{ ansible_distribution }}-$releasever - extras packages for $basearch'
+    enabled: 1
+    file: '{{ ansible_distribution }}-Base'
+    gpgcheck: 1
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}
+    name: extras
+    protect: 0
+  - baseurl: '{{ repo_base_yum_mirror }}/$releasever/centosplus/$basearch/'
+    description: '{{ ansible_distribution }}-$releasever - centosplus packages for $basearch'
+    enabled: 0
+    file: '{{ ansible_distribution }}-Base'
+    gpgcheck: 1
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}
+    name: centosplus
+    protect: 0
+  - baseurl: '{{ repo_base_yum_mirror }}/$releasever/contrib/$basearch/'
+    description: '{{ ansible_distribution }}-$releasever - contrib packages for $basearch'
+    enabled: 0
+    file: '{{ ansible_distribution }}-Base'
+    gpgcheck: 1
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}
+    name: contrib
+    protect: 0
+

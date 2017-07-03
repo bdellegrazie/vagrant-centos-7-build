@@ -1,0 +1,9 @@
+---
+# Python libraries for Ansible
+- name: Python libraries for Ansible
+  yum:
+    name: "{{ item }}"
+    state: present
+  when: ansible_os_family == 'RedHat'
+  with_items:
+  - libselinux-python

@@ -1,0 +1,9 @@
+---
+# Minimal set of 'C' build tools
+build_tools_packages:
+  - gcc
+  - make
+  - rpmdevtools
+
+build_tools_smp_threads: "{{ ansible_processor_cores | int }}"
+build_tools_packager: "Vagrant <vagrant@example.com>"

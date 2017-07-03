@@ -1,0 +1,5 @@
+---
+yum_proxy_manage: true
+yum_proxy_disable: false
+yum_proxy_url: http://10.0.2.2:8000/
+

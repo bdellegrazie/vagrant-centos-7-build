@@ -1,0 +1,4 @@
+---
+# From Galaxy
+- src: Stouts.timezone
+  version: '2.2.0'

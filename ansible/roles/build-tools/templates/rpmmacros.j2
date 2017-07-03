@@ -1,0 +1,5 @@
+%_topdir      %(echo $HOME)/rpmbuild
+%_smp_mflags  -j{{ build_tools_smp_threads | int }}
+%__arch_install_post   /usr/lib/rpm/check-rpaths   /usr/lib/rpm/check-buildroot
+%dist .el{{ ansible_distribution_major_version }}
+%packager       "Vagrant <vagrant@example.com>"

@@ -1,0 +1,13 @@
+---
+- hosts: all
+  roles:
+    - { role: repos, repos_yum_name: "base", repos_yum_manage: "{{ repo_base_yum_manage }}", repos_yum_list: "{{ repo_base_yum_list }}" }
+    - repo-epel
+    - { role: repos, repos_yum_name: "epel", repos_yum_manage: "{{ repo_epel_yum_manage }}", repos_yum_list: "{{ repo_epel_yum_list }}" }
+    - Stouts.timezone
+    - common
+    - bootstrap
+    - editors
+    - ttys
+    - { role: build-tools, tags: [ "build_tools" ] }
+  tags: base
