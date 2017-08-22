@@ -1,0 +1,8 @@
+# Ansible variables - for format see: https://www.vagrantup.com/docs/provisioning/ansible_common.html
+#ANSIBLE_TAGS=[]
+#ANSIBLE_SKIP_TAGS
+#ANSIBLE_GROUPS={
+#  "yum_proxy" => ["default"],
+#}
+#ANSIBLE_VERBOSE="vvv"
+

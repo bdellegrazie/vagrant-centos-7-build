@@ -1,5 +1,6 @@
 # Vagrant
 .vagrant/
+settings.rb
 
 CentOS/
 

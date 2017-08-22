@@ -3,13 +3,16 @@
 
 Vagrant.require_version ">= 1.9.5"
 
+begin
+  require_relative('settings')
+rescue LoadError
+end
+
 ANSIBLE_GROUPS ||={}
 ANSIBLE_TAGS ||= nil
 ANSIBLE_VERBOSE ||= nil
 ANSIBLE_EXTRA_VARS ||= {}
-ansible_groups = {
-  "yum-proxy" => ["default"],
-}
+ansible_groups = {}
 ansible_groups.merge!(ANSIBLE_GROUPS)
 ansible_galaxy_role_file ||='ansible/requirements.yml'
 
@@ -37,8 +40,9 @@ Vagrant.configure("2") do |config|
   config.vbguest.no_remote = true
   config.ssh.forward_agent = true
   config.ssh.insert_key = false
+  config.vm.network :forwarded_port, guest: 19999, host: 19999
 
-  config.vm.provision "ansible", type: "ansible_local", run: "always" do |ansible|
+  config.vm.provision "ansible", type: "ansible_local", run: "once" do |ansible|
     ansible.galaxy_command = "ansible-galaxy install --role-file=%{role_file} --roles-path=%{roles_path}"
     ansible.galaxy_roles_path = 'ansible/galaxy_roles'
     ansible.galaxy_role_file = ansible_galaxy_role_file
