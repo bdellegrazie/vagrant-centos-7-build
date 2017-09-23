@@ -10,4 +10,5 @@
     - editors
     - ttys
     - { role: build-tools, tags: [ "build_tools" ] }
+    - { role: nodejs-nvm, tags: [ "nodejs-nvm" ] }
   tags: base

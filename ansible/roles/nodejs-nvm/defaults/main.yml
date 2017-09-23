@@ -1,0 +1,9 @@
+---
+nodejs_nvm_user: vagrant
+nodejs_nvm_group: vagrant
+nodejs_nvm_home: /home/vagrant
+nodejs_nvm_repo: "https://github.com/creationix/nvm.git"
+nodejs_nvm_version: 'v0.33.4'
+# Optional
+# nodejs_nvm_git: /usr/bin/git
+

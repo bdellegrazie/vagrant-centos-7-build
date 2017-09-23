@@ -6,6 +6,7 @@ CentOS/
 
 # Ansible
 ansible/galaxy_roles/
+*.retry
 
 # Eclipse
 .settings/

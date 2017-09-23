@@ -1,0 +1,25 @@
+---
+
+- name: Clone nvm repo
+  become: true
+  become_user: "{{ nodejs_nvm_user }}"
+  git:
+    clone: true
+    dest: "{{ nodejs_nvm_home }}/.nvm"
+    executable: "{{ nodejs_nvm_git | default(omit) }}"
+    repo: "{{ nodejs_nvm_repo }}"
+    umask: "0022"
+    version: "{{ nodejs_nvm_version }}"
+
+- name: Append to .bashrc
+  become: true
+  become_user: "{{ nodejs_nvm_user }}"
+  blockinfile:
+    block: |
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+    marker: '# {mark} NVM.IO'
+    dest: "{{ nodejs_nvm_home }}/.bashrc"
+    state: present
+
