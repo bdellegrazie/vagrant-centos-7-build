@@ -11,4 +11,6 @@
     - ttys
     - { role: build-tools, tags: [ "build_tools" ] }
     - { role: nodejs-nvm, tags: [ "nodejs-nvm" ] }
+    - { role: headless, tags: [ "headless"] }
+    - { role: firefox, tags: [ "firefox"] }
   tags: base

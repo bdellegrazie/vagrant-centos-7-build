@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
   # information on available options.
   config.vm.provider :virtualbox do |vb|
     vb.gui = false
-    vb.memory = 2048
+    vb.memory = 4096
     vb.cpus = 2
     vb.customize ["modifyvm", :id, "--ostype", "Redhat_64"]
     vb.customize ["modifyvm", :id, "--nictype1", "virtio"]
@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
   config.vbguest.no_remote = true
   config.ssh.forward_agent = true
   config.ssh.insert_key = false
-  config.vm.network :forwarded_port, guest: 19999, host: 19999
+  #config.vm.network :forwarded_port, guest: 19999, host: 19999
 
   config.vm.provision "ansible", type: "ansible_local", run: "once" do |ansible|
     ansible.galaxy_command = "ansible-galaxy install --role-file=%{role_file} --roles-path=%{roles_path}"

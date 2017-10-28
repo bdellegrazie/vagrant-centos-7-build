@@ -1,0 +1,6 @@
+---
+- name: Install firefox
+  package:
+    name: "{{ item }}"
+  with_items:
+    - "{{ firefox_packages }}"

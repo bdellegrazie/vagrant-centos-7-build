@@ -1,0 +1,7 @@
+---
+
+- name: Install headless packages
+  package:
+    name: "{{ item }}"
+  with_items:
+    - "{{ headless_packages }}"
