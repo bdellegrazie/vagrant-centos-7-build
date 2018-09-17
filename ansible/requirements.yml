@@ -2,3 +2,5 @@
 # From Galaxy
 - src: Stouts.timezone
   version: '2.2.0'
+- src: smbambling.scl
+  version: 'master'

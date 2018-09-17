@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant.require_version ">= 1.9.5"
+Vagrant.require_version ">= 2.1.4"
 
 begin
   require_relative('settings')
@@ -23,6 +23,8 @@ ansible_galaxy_role_file ||='ansible/requirements.yml'
 Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
 
+  config.vagrant.plugins = ["vagrant-hosts", "vagrant-vbguest"]
+
   # View the documentation for the provider you are using for more
   # information on available options.
   config.vm.provider :virtualbox do |vb|
@@ -41,6 +43,7 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_agent = true
   config.ssh.insert_key = false
   #config.vm.network :forwarded_port, guest: 19999, host: 19999
+  #config.vm.network :forwarded_port, guest: 80, host: 8080
 
   config.vm.provision "ansible", type: "ansible_local", run: "once" do |ansible|
     ansible.galaxy_command = "ansible-galaxy install --role-file=%{role_file} --roles-path=%{roles_path}"

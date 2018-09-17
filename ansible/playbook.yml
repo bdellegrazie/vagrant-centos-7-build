@@ -9,8 +9,25 @@
     - bootstrap
     - editors
     - ttys
+  tags: base
+
+- hosts: cxx
+  roles:
     - { role: build-tools, tags: [ "build_tools" ] }
+
+- hosts: javascript
+  roles:
     - { role: nodejs-nvm, tags: [ "nodejs-nvm" ] }
+
+- hosts: ruby
+  roles:
+    - role: smbambling.scl
+      scl_packages:
+        - {name: 'rh-ruby23', state: 'latest'}
+      scl_ruby_gems:
+        - {ruby_ver: 'rh-ruby23', name: 'bundler', state: 'present'}
+
+- hosts: headless
+  roles:
     - { role: headless, tags: [ "headless"] }
     - { role: firefox, tags: [ "firefox"] }
-  tags: base

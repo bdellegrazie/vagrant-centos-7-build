@@ -2,7 +2,7 @@
 # Use a fixed yum mirror so that proxies work efficiently
 
 repo_base_yum_manage: true
-repo_base_yum_mirror: 'http://www.mirrorservice.org/sites/mirror.centos.org'
+repo_base_yum_mirror: 'http://mirrors.ukfast.co.uk/sites/ftp.centos.org'
 repo_base_yum_list:
   - baseurl: '{{ repo_base_yum_mirror }}/$releasever/os/$basearch/'
     description: '{{ ansible_distribution }}-$releasever - base packages for $basearch'

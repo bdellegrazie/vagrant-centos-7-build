@@ -2,7 +2,7 @@
 # Use a fixed yum mirror so that proxies work efficiently
 
 repo_epel_yum_manage: true
-repo_epel_yum_mirror: 'http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel'
+repo_epel_yum_mirror: 'http://mirrors.ukfast.co.uk/sites/dl.fedoraproject.org/pub/epel'
 repo_epel_yum_list:
   - baseurl: '{{ repo_epel_yum_mirror }}/$releasever/$basearch/'
     description: 'Extra Packages for Enterprise Linux $releasever - $basearch'
