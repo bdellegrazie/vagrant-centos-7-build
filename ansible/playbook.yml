@@ -5,8 +5,8 @@
     - repo-epel
     - { role: repos, repos_yum_name: "epel", repos_yum_manage: "{{ repo_epel_yum_manage }}", repos_yum_list: "{{ repo_epel_yum_list }}" }
     - Stouts.timezone
-    - common
     - bootstrap
+    - common
     - editors
     - ttys
   tags: base
