@@ -6,4 +6,5 @@
     state: present
   when: ansible_os_family == 'RedHat'
   with_items:
-  - libselinux-python
+    - libselinux-python
+    - libsemanage-python

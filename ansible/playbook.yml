@@ -1,9 +1,9 @@
 ---
 - hosts: all
   roles:
-    - { role: repos, repos_yum_name: "base", repos_yum_manage: "{{ repo_base_yum_manage }}", repos_yum_list: "{{ repo_base_yum_list }}" }
+    - {role: repos, repos_yum_name: "base", repos_yum_manage: "{{ repo_base_yum_manage }}", repos_yum_list: "{{ repo_base_yum_list }}"}
     - repo-epel
-    - { role: repos, repos_yum_name: "epel", repos_yum_manage: "{{ repo_epel_yum_manage }}", repos_yum_list: "{{ repo_epel_yum_list }}" }
+    - {role: repos, repos_yum_name: "epel", repos_yum_manage: "{{ repo_epel_yum_manage }}", repos_yum_list: "{{ repo_epel_yum_list }}"}
     - Stouts.timezone
     - bootstrap
     - common
@@ -13,11 +13,11 @@
 
 - hosts: cxx
   roles:
-    - { role: build-tools, tags: [ "build_tools" ] }
+    - {role: build-tools, tags: ["build_tools"]}
 
 - hosts: javascript
   roles:
-    - { role: nodejs-nvm, tags: [ "nodejs-nvm" ] }
+    - {role: nodejs-nvm, tags: ["nodejs-nvm"]}
 
 - hosts: ruby
   roles:
@@ -29,5 +29,15 @@
 
 - hosts: headless
   roles:
-    - { role: headless, tags: [ "headless"] }
-    - { role: firefox, tags: [ "firefox"] }
+    - {role: headless, tags: ["headless"]}
+    - {role: firefox, tags: ["firefox"]}
+
+- hosts: db
+  roles:
+    - role: repos
+      repos_yum_name: "postgresql"
+      repos_yum_manage: "{{ repo_postgresql_yum_manage }}"
+      repos_yum_list: "{{ repo_postgresql_yum_list }}"
+    - role: postgresql
+    - role: postgresql_monitor
+    - role: collectd_postgresql

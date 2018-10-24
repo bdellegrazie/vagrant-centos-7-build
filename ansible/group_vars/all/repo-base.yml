@@ -44,4 +44,3 @@ repo_base_yum_list:
     gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}
     name: contrib
     protect: 0
-

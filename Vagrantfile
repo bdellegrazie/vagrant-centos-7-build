@@ -53,5 +53,6 @@ Vagrant.configure("2") do |config|
     ansible.groups = ansible_groups
     ansible.tags = ANSIBLE_TAGS
     ansible.extra_vars = ANSIBLE_EXTRA_VARS
+    ansible.verbose = ANSIBLE_VERBOSE
   end
 end

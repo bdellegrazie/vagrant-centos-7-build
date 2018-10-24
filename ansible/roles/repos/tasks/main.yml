@@ -14,6 +14,7 @@
     name: "{{ item.name }}"
     protect: "{{ item.protect | default(omit) }}"
     state: "{{ item.state | default(omit) }}"
-  when: ansible_os_family == 'RedHat' and repos_yum_manage
+  when:
+    - "ansible_os_family | lower == 'redhat'"
+    - "repos_yum_manage | bool"
   with_items: "{{ repos_yum_list }}"
-
