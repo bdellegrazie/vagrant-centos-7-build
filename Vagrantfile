@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
   #config.vm.network :forwarded_port, guest: 19999, host: 19999
   #config.vm.network :forwarded_port, guest: 80, host: 8080
 
-  config.vm.provision "ansible", type: "ansible_local", run: "once" do |ansible|
+  config.vm.provision "ansible", type: "ansible", run: "once" do |ansible|
     ansible.galaxy_command = "ansible-galaxy install --role-file=%{role_file} --roles-path=%{roles_path}"
     ansible.galaxy_roles_path = 'ansible/galaxy_roles'
     ansible.galaxy_role_file = ansible_galaxy_role_file

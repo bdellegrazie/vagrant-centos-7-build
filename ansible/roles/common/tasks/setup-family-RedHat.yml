@@ -1,6 +1,7 @@
 ---
 # fastest mirror breaks proxies
 - name: Disable yum fastestmirror plugin
+  become: true
   ini_file:
     dest: /etc/yum/pluginconf.d/fastestmirror.conf
     section: main
@@ -10,12 +11,11 @@
 
 # Always use protect base when multiple repos are in use
 - name: Install yum protectbase plugin
-  yum:
-    name: "{{ item }}"
+  become: true
+  package:
+    name:
+      - yum-plugin-protectbase
+      - python-lxml
+      - unzip
     state: present
   when: ansible_os_family == 'RedHat'
-  with_items:
-    - yum-plugin-protectbase
-    - python-lxml
-    - unzip
-

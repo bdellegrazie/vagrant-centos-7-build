@@ -18,3 +18,5 @@
     - "ansible_os_family | lower == 'redhat'"
     - "repos_yum_manage | bool"
   with_items: "{{ repos_yum_list }}"
+  loop_control:
+    label: "{{ item.name }}"

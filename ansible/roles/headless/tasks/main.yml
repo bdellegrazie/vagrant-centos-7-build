@@ -1,7 +1,5 @@
 ---
-
 - name: Install headless packages
+  become: true
   package:
-    name: "{{ item }}"
-  with_items:
-    - "{{ headless_packages }}"
+    name: "{{ headless_packages }}"
