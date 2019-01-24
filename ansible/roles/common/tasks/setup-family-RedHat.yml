@@ -18,4 +18,6 @@
       - python-lxml
       - unzip
     state: present
+  register: _install
+  until: _install is succeeded
   when: ansible_os_family == 'RedHat'

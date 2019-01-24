@@ -4,6 +4,8 @@
   package:
     name: "{{ build_tools_packages }}"
     state: present
+  register: _install
+  until: _install is succeeded
 
 - name: template rpmmacros
   become: false

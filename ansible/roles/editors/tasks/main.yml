@@ -6,4 +6,6 @@
       - nano
       - vim-enhanced
     state: present
-  when: ansible_os_family == 'RedHat'
+  register: _install
+  until: _install is succeeded
+  when: (ansible_os_family | lower) == 'redhat'

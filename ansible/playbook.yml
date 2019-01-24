@@ -31,13 +31,3 @@
   roles:
     - {role: headless, tags: ["headless"]}
     - {role: firefox, tags: ["firefox"]}
-
-- hosts: db
-  roles:
-    - role: repos
-      repos_yum_name: "postgresql"
-      repos_yum_manage: "{{ repo_postgresql_yum_manage }}"
-      repos_yum_list: "{{ repo_postgresql_yum_list }}"
-    - role: postgresql
-    - role: postgresql_monitor
-    - role: collectd_postgresql

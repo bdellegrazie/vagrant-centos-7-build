@@ -3,3 +3,5 @@
   become: true
   package:
     name: "{{ headless_packages }}"
+  register: _install
+  until: _install is succeeded

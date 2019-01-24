@@ -4,4 +4,6 @@
   yum:
     name: epel-release
     state: present
-  when: ansible_distribution == "CentOS"
+  register: _install
+  until: _install is succeeded
+  when: (ansible_distribution | lower)== "centos"
