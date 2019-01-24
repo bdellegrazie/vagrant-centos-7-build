@@ -2,6 +2,9 @@
 .vagrant/
 settings.rb
 
+# Pipenv
+.venv
+
 CentOS/
 
 # Ansible
