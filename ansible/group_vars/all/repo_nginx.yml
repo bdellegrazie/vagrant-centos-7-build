@@ -1,0 +1,10 @@
+---
+repo_nginx_yum_manage: true
+repo_nginx_yum_mirror: 'https://nginx.org/packages/centos'
+repo_nginx_yum_list:
+  - baseurl: '{{ repo_nginx_yum_mirror }}/$releasever/$basearch/'
+    description: 'Nginx Repo $basearch'
+    enabled: true
+    file: nginx
+    gpgcheck: false
+    name: nginx

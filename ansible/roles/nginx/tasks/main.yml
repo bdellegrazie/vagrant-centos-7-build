@@ -1,0 +1,6 @@
+---
+- name: install
+  become: true
+  package:
+    name: nginx
+
