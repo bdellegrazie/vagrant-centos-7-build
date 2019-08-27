@@ -6,7 +6,7 @@
     dest: /etc/yum/pluginconf.d/fastestmirror.conf
     section: main
     option: enabled
-    value: 0
+    value: '0'
   when: ansible_os_family == 'RedHat'
 
 # Always use protect base when multiple repos are in use
