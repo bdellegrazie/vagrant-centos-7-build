@@ -1,0 +1,18 @@
+---
+extends: default
+ignore: |
+  .pre-commit-config.yaml
+  .travis.yml
+  /.venv/
+  /ansible/galaxy_roles/
+
+rules:
+  braces:
+    max-spaces-inside: 1
+    level: error
+  brackets:
+    max-spaces-inside: 1
+    level: error
+  comments:
+    require-starting-space: false
+  line-length: disable
