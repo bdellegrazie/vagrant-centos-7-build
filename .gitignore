@@ -3,13 +3,14 @@
 settings.rb
 
 # Pipenv
-.venv
+.venv/
 
 CentOS/
 
 # Ansible
 ansible/galaxy_roles/
 *.retry
+.direnv/
 
 # Eclipse
 .settings/
